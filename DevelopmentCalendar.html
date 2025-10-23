@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Focus Calendar - Nov 2025 - Feb 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0d1117;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #161b22;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #161b22;
+            color: #e6edf3;
+            padding: 40px 40px 24px 40px;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .header h1 {
+            font-size: 1.875rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .header p {
+            color: #8b949e;
+            font-size: 0.9375rem;
+            font-weight: 400;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: flex-start;
+            gap: 32px;
+            padding: 16px 40px;
+            background: #0d1117;
+            border-bottom: 1px solid #30363d;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-box {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+        
+        .legend-item span {
+            font-size: 0.8125rem;
+            color: #c9d1d9;
+        }
+        
+        .calendar {
+            padding: 32px 40px 40px 40px;
+        }
+        
+        .week-labels {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            margin-bottom: 1px;
+            background: #30363d;
+            border: 1px solid #30363d;
+        }
+        
+        .week-label {
+            text-align: left;
+            font-weight: 500;
+            color: #8b949e;
+            padding: 12px 16px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: #0d1117;
+        }
+        
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #30363d;
+            border: 1px solid #30363d;
+            border-top: none;
+        }
+        
+        .day {
+            min-height: 120px;
+            border: none;
+            padding: 12px;
+            position: relative;
+            background: #0d1117;
+            transition: background-color 0.15s ease;
+        }
+        
+        .day:hover {
+            background: #161b22;
+        }
+        
+        .day-number {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #e6edf3;
+            margin-bottom: 8px;
+        }
+        
+        .day-content {
+            margin-top: 0;
+            font-size: 0.75rem;
+        }
+        
+        .focus-block {
+            background: #1c2e4a;
+            color: #58a6ff;
+            padding: 6px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+            font-weight: 500;
+            font-size: 0.6875rem;
+            border-left: 3px solid #58a6ff;
+        }
+        
+        .blitz-day {
+            background: #3d1d1d;
+            color: #ff7b72;
+            padding: 6px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+            font-weight: 600;
+            font-size: 0.6875rem;
+            border-left: 3px solid #ff7b72;
+        }
+        
+        .video-due {
+            background: #1a3a3a;
+            color: #7ee6d3;
+            padding: 6px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            border-left: 3px solid #3dd6b5;
+        }
+        
+        .empty-day {
+            background: #010409;
+        }
+        
+        .empty-day:hover {
+            background: #010409;
+        }
+        
+        .weekend {
+            background: #010409;
+        }
+        
+        .weekend:hover {
+            background: #0d1117;
+        }
+        
+        .weekend .day-number {
+            color: #6e7681;
+        }
+        
+        .summary {
+            background: #0d1117;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #30363d;
+        }
+        
+        .summary h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #e6edf3;
+            letter-spacing: -0.02em;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #e6edf3;
+            letter-spacing: -0.02em;
+        }
+        
+        .stat-label {
+            color: #8b949e;
+            margin-top: 8px;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .holiday {
+            background: #3d2e1f;
+            padding: 6px 8px;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 0.6875rem;
+            border-left: 3px solid #d29922;
+            color: #e3b341;
+        }
+        
+        .aem-block {
+            background: #2d2440;
+            color: #bc8cff;
+            padding: 6px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+            font-weight: 500;
+            font-size: 0.6875rem;
+            border-left: 3px solid #bc8cff;
+        }
+        
+        .gauntlet-travel {
+            background: #2d3139;
+            color: #79c0ff;
+            padding: 6px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+            font-weight: 500;
+            font-size: 0.6875rem;
+            border-left: 3px solid #79c0ff;
+        }
+        
+        .gauntlet-work {
+            background: #2d1f2e;
+            color: #ffa657;
+            padding: 6px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+            font-weight: 600;
+            font-size: 0.6875rem;
+            border-left: 3px solid #ffa657;
+        }
+        
+        @media (max-width: 768px) {
+            .calendar {
+                padding: 16px;
+            }
+            .header {
+                padding: 24px 16px;
+            }
+            .legend {
+                padding: 12px 16px;
+            }
+            .day {
+                min-height: 100px;
+                padding: 8px;
+            }
+            .day-content {
+                font-size: 0.625rem;
+            }
+            .focus-block, .blitz-day, .video-due, .gauntlet-travel, .gauntlet-work {
+                padding: 4px 6px;
+                font-size: 0.625rem;
+            }
+        }
+
+        /* Print-specific styles for better PDF layout */
+        @page {
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+
+            /* Keep intro section together on page 1 */
+            .container > .header:first-child {
+                page-break-after: avoid;
+                padding: 24px 32px 12px 32px;
+            }
+
+            .container > .header:first-child h1 {
+                font-size: 1.5rem;
+                margin-bottom: 2px;
+            }
+
+            .container > .header:first-child p {
+                font-size: 0.875rem;
+            }
+
+            /* Compress the "How It Works" section for print */
+            .container > div:nth-child(2) {
+                page-break-after: always;
+                padding: 24px 32px !important;
+            }
+
+            .container > div:nth-child(2) h2 {
+                font-size: 1.25rem !important;
+                margin-bottom: 20px !important;
+            }
+
+            .container > div:nth-child(2) > div > div {
+                gap: 20px !important;
+            }
+
+            .container > div:nth-child(2) > div > div > div {
+                padding: 16px !important;
+            }
+
+            .container > div:nth-child(2) > div > div > div h3 {
+                font-size: 0.9375rem !important;
+            }
+
+            .container > div:nth-child(2) > div > div > div p {
+                font-size: 0.8125rem !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Force page break after each summary to start new month on new page */
+            .summary {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+
+            /* Keep each month's header with its content */
+            .header:not(:first-child) {
+                page-break-before: auto;
+                page-break-after: avoid;
+            }
+
+            /* Keep legend with its calendar */
+            .legend {
+                page-break-before: avoid;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* Keep calendar grid intact */
+            .calendar {
+                page-break-before: avoid;
+                page-break-inside: avoid;
+                page-break-after: avoid;
+            }
+
+            /* Prevent page breaks inside calendar grid */
+            .days-grid {
+                page-break-inside: avoid;
+            }
+
+            .week-labels {
+                page-break-after: avoid;
+            }
+
+            /* Reduce day cell height for better fit on print */
+            .day {
+                min-height: 85px;
+                padding: 8px;
+            }
+
+            /* Adjust padding for print */
+            .header {
+                padding: 20px 32px 12px 32px;
+            }
+
+            .calendar {
+                padding: 16px 32px 20px 32px;
+            }
+
+            .summary {
+                padding: 20px 32px;
+            }
+
+            /* Remove hover effects in print */
+            .day:hover {
+                background: #0d1117;
+            }
+
+            .weekend:hover {
+                background: #010409;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Developer Focus Calendar</h1>
+            <p>November 2025 - February 2026</p>
+        </div>
+        
+        <div style="background: #0d1117; padding: 40px; border-top: 1px solid #30363d;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <h2 style="color: #e6edf3; margin-bottom: 32px; text-align: center; font-weight: 500; font-size: 1.75rem; letter-spacing: -0.02em;">
+                    How It Works
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+                    <div style="background: #161b22; padding: 24px; border-radius: 8px; border: 1px solid #30363d;">
+                        <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                            <div style="width: 4px; height: 24px; background: #58a6ff; border-radius: 2px; margin-right: 12px;"></div>
+                            <h3 style="color: #e6edf3; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em;">
+                                Focus Time
+                            </h3>
+                        </div>
+                        <p style="color: #c9d1d9; line-height: 1.6; font-size: 0.9375rem;">
+                            Every Tuesday through Thursday from 10am-5pm ET, developers join their pod's dedicated Discord channel.
+                            Developers step away from Teams and calendars are blocked. Pods work together with cameras on,
+                            enabling natural collaboration while maintaining deep focus. These consistent 7-hour blocks create
+                            predictable, protected time for feature development.
+                        </p>
+                    </div>
+                    
+                    <div style="background: #161b22; padding: 24px; border-radius: 8px; border: 1px solid #30363d;">
+                        <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                            <div style="width: 4px; height: 24px; background: #ff7b72; border-radius: 2px; margin-right: 12px;"></div>
+                            <h3 style="color: #e6edf3; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em;">
+                                Blitz Days
+                            </h3>
+                        </div>
+                        <p style="color: #c9d1d9; line-height: 1.6; font-size: 0.9375rem;">
+                            Once monthly, we escalate to a single 8-hour hackathon-style development marathon. Complete isolation from 
+                            meetings and messaging platforms allows pods to tackle complex features requiring sustained context. 
+                            Breakfast and lunch are provided to keep the team fueled and focused. The Blitz Day concludes with a 2-3 minute video 
+                            demonstration posted to Community, showcasing tangible progress and maintaining cross-team visibility.
+                        </p>
+                    </div>
+                    
+                    <div style="background: #161b22; padding: 24px; border-radius: 8px; border: 1px solid #30363d;">
+                        <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                            <div style="width: 4px; height: 24px; background: #ffa657; border-radius: 2px; margin-right: 12px;"></div>
+                            <h3 style="color: #e6edf3; font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em;">
+                                Rev.io Thunderdome
+                            </h3>
+                        </div>
+                        <p style="color: #c9d1d9; line-height: 1.6; font-size: 0.9375rem;">
+                            Once quarterly, teams gather on-site for an intensive 4-day development sprint, tackling major modular 
+                            projects. Working 12-14 hour days with transportation, meals, laundry, and cleaning provided, developers achieve deep collaboration that's impossible 
+                            remotely. Each day concludes with a video demo showcasing progress. Cash prizes and bounties reward exceptional 
+                            achievements and completed features. The Gauntlet transforms ambitious projects into delivered features through sustained, focused teamwork.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header" style="border-top: 1px solid #30363d;">
+            <h1>November 2025</h1>
+            <p>Developer Focus Calendar</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background: #58a6ff;"></div>
+                <span>Focus Time (10am-5pm ET)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #ff7b72;"></div>
+                <span>Blitz Day (8 hours)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #3dd6b5;"></div>
+                <span>Video Due (2-3 min)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #bc8cff;"></div>
+                <span>AEM Session</span>
+            </div>
+        </div>
+        
+        <div class="calendar">
+            <div class="week-labels">
+                <div class="week-label">Sunday</div>
+                <div class="week-label">Monday</div>
+                <div class="week-label">Tuesday</div>
+                <div class="week-label">Wednesday</div>
+                <div class="week-label">Thursday</div>
+                <div class="week-label">Friday</div>
+                <div class="week-label">Saturday</div>
+            </div>
+            
+            <div class="days-grid">
+                <!-- Week 1 -->
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day weekend">
+                    <div class="day-number">1</div>
+                </div>
+                
+                <!-- Week 1 continued -->
+                <div class="day weekend">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">3</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">4</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">5</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">6</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">7</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">8</div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="day weekend">
+                    <div class="day-number">9</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">10</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">11</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">12</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">13</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">14</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">15</div>
+                </div>
+                
+                <!-- Week 3 - BLITZ WEEK -->
+                <div class="day weekend">
+                    <div class="day-number">16</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">17</div>
+                    <div class="day-content">
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">18</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">Blitz Preparation</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">19</div>
+                    <div class="day-content">
+                        <div class="blitz-day">Blitz Day • 8 hours</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">20</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div class="aem-block">AEM Session</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">21</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">22</div>
+                </div>
+                
+                <!-- Week 4 - Thanksgiving Week -->
+                <div class="day weekend">
+                    <div class="day-number">23</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">24</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">25</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">26</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">27</div>
+                    <div class="day-content">
+                        <div class="holiday">🦃 Thanksgiving</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">28</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">29</div>
+                </div>
+                
+                <!-- Week 5 -->
+                <div class="day weekend">
+                    <div class="day-number">30</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>November 2025 Summary</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">36</div>
+                    <div class="stat-label">Focus Hours<br>(Regular Weeks)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Blitz Hours<br>(Week 3)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Demo Videos<br>Required</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">44</div>
+                    <div class="stat-label">Total Protected<br>Dev Hours</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- December 2025 Calendar -->
+        <div class="header" style="border-top: 1px solid #30363d;">
+            <h1>December 2025</h1>
+            <p>Developer Focus Calendar</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background: #58a6ff;"></div>
+                <span>Focus Time (10am-5pm ET)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #ff7b72;"></div>
+                <span>Blitz Day (8 hours)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #3dd6b5;"></div>
+                <span>Video Due (2-3 min)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #bc8cff;"></div>
+                <span>AEM Session</span>
+            </div>
+        </div>
+        
+        <div class="calendar">
+            <div class="week-labels">
+                <div class="week-label">Sunday</div>
+                <div class="week-label">Monday</div>
+                <div class="week-label">Tuesday</div>
+                <div class="week-label">Wednesday</div>
+                <div class="week-label">Thursday</div>
+                <div class="week-label">Friday</div>
+                <div class="week-label">Saturday</div>
+            </div>
+            
+            <div class="days-grid">
+                <!-- Week 1 -->
+                <div class="day empty-day"></div>
+                <div class="day">
+                    <div class="day-number">1</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">2</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">3</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">4</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">5</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">6</div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="day weekend">
+                    <div class="day-number">7</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">8</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">9</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">10</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">11</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">12</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">13</div>
+                </div>
+                
+                <!-- Week 3 - BLITZ WEEK -->
+                <div class="day weekend">
+                    <div class="day-number">14</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">15</div>
+                    <div class="day-content">
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">16</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">Blitz Preparation</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">17</div>
+                    <div class="day-content">
+                        <div class="blitz-day">Blitz Day • 8 hours</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">18</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">19</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">20</div>
+                </div>
+                
+                <!-- Week 4 - Holiday Week -->
+                <div class="day weekend">
+                    <div class="day-number">21</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">22</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">23</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">24</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">25</div>
+                    <div class="day-content">
+                        <div class="holiday">🎄 Christmas</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">26</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">27</div>
+                </div>
+                
+                <!-- Week 5 - New Year's Week -->
+                <div class="day weekend">
+                    <div class="day-number">28</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">29</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">30</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">31</div>
+                    <div class="day-content">
+                        <div class="holiday">🎊 New Year's Eve</div>
+                    </div>
+                </div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>December 2025 Summary</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">36</div>
+                    <div class="stat-label">Focus Hours<br>(Regular Weeks)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Blitz Hours<br>(Week 3)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Demo Videos<br>Required</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">44</div>
+                    <div class="stat-label">Total Protected<br>Dev Hours</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- January 2026 Calendar -->
+        <div class="header" style="border-top: 1px solid #30363d;">
+            <h1>January 2026</h1>
+            <p>Developer Focus Calendar</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background: #58a6ff;"></div>
+                <span>Focus Time (10am-5pm ET)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #ff7b72;"></div>
+                <span>Blitz Day (8 hours)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #3dd6b5;"></div>
+                <span>Video Due (2-3 min)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #bc8cff;"></div>
+                <span>AEM Session</span>
+            </div>
+        </div>
+        
+        <div class="calendar">
+            <div class="week-labels">
+                <div class="week-label">Sunday</div>
+                <div class="week-label">Monday</div>
+                <div class="week-label">Tuesday</div>
+                <div class="week-label">Wednesday</div>
+                <div class="week-label">Thursday</div>
+                <div class="week-label">Friday</div>
+                <div class="week-label">Saturday</div>
+            </div>
+            
+            <div class="days-grid">
+                <!-- Week 1 -->
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day empty-day"></div>
+                <div class="day">
+                    <div class="day-number">1</div>
+                    <div class="day-content">
+                        <div class="holiday">🎉 New Year's Day</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">3</div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="day weekend">
+                    <div class="day-number">4</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">5</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">6</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">7</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">8</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">9</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">10</div>
+                </div>
+                
+                <!-- Week 3 - BLITZ WEEK -->
+                <div class="day weekend">
+                    <div class="day-number">11</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">12</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">13</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">Blitz Preparation</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">14</div>
+                    <div class="day-content">
+                        <div class="blitz-day">Blitz Day • 8 hours</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">15</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">16</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">17</div>
+                </div>
+                
+                <!-- Week 4 -->
+                <div class="day weekend">
+                    <div class="day-number">18</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">19</div>
+                    <div class="day-content">
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">20</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">21</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">22</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">23</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">24</div>
+                </div>
+                
+                <!-- Week 5 -->
+                <div class="day weekend">
+                    <div class="day-number">25</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">26</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">27</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">28</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">29</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div class="aem-block">AEM Session</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">30</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">31</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>January 2026 Summary</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">44</div>
+                    <div class="stat-label">Focus Hours<br>(Regular Weeks)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Blitz Hours<br>(Week 3)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Demo Videos<br>Required</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">52</div>
+                    <div class="stat-label">Total Protected<br>Dev Hours</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- February 2026 Calendar -->
+        <div class="header" style="border-top: 1px solid #30363d;">
+            <h1>February 2026</h1>
+            <p>Developer Focus Calendar</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background: #58a6ff;"></div>
+                <span>Focus Time (10am-5pm ET)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #ffa657;"></div>
+                <span>Rev.io Thunderdome (On-site)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #79c0ff;"></div>
+                <span>Travel Day</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: #bc8cff;"></div>
+                <span>AEM Session</span>
+            </div>
+        </div>
+        
+        <div class="calendar">
+            <div class="week-labels">
+                <div class="week-label">Sunday</div>
+                <div class="week-label">Monday</div>
+                <div class="week-label">Tuesday</div>
+                <div class="week-label">Wednesday</div>
+                <div class="week-label">Thursday</div>
+                <div class="week-label">Friday</div>
+                <div class="week-label">Saturday</div>
+            </div>
+            
+            <div class="days-grid">
+                <!-- Week 1 -->
+                <div class="day weekend">
+                    <div class="day-number">1</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">3</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">4</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">5</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">6</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">7</div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="day weekend">
+                    <div class="day-number">8</div>
+                </div>
+                <div class="day">
+                    <div class="day-number">9</div>
+                    <div class="day-content">
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">⚔️ Thunderdome Prep</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">10</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">⚔️ Thunderdome Prep</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">11</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">⚔️ Thunderdome Prep</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">12</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">⚔️ Thunderdome Prep</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">13</div>
+                    <div class="day-content">
+                        <div style="color: #8b949e; font-size: 0.6875rem; margin-top: 8px;">⚔️ Thunderdome Prep</div>
+                    </div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">14</div>
+                </div>
+                
+                <!-- Week 3 - REV.IO THUNDERDOME WEEK -->
+                <div class="day weekend">
+                    <div class="day-number">15</div>
+                    <div class="day-content">
+                        <div class="gauntlet-travel">⚔️ Thunderdome Travel</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">16</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 1 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">17</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 2 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">18</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 3 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">19</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 4 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">20</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 5 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">21</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 6 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                
+                <!-- Week 4 -->
+                <div class="day weekend">
+                    <div class="day-number">22</div>
+                    <div class="day-content">
+                        <div class="gauntlet-work">⚔️ Thunderdome Day 7 • 12-14hrs</div>
+                        <div class="video-due">Video Due EOD</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">23</div>
+                    <div class="day-content">
+                        <div class="gauntlet-travel">⚔️ Thunderdome Travel</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">24</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">25</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">26</div>
+                    <div class="day-content">
+                        <div class="focus-block">Focus Time • 10am-5pm ET</div>
+                        <div class="aem-block">AEM Session</div>
+                    </div>
+                </div>
+                <div class="day">
+                    <div class="day-number">27</div>
+                </div>
+                <div class="day weekend">
+                    <div class="day-number">28</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>February 2026 Summary</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Focus Hours<br>(Regular Weeks)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">52</div>
+                    <div class="stat-label">Rev.io Thunderdome<br>(4 Days On-site)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Demo Videos<br>Required</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">76</div>
+                    <div class="stat-label">Total Protected<br>Dev Hours</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
