@@ -62,8 +62,8 @@
 
         .header .subtitle {
             font-size: 14pt;
-            color: #a3a3a3;
-            font-weight: 400;
+            color: #22c55e;
+            font-weight: 500;
             letter-spacing: -0.2px;
         }
 
@@ -134,15 +134,15 @@
         }
 
         .role-badge.arch {
-            background: #262626;
-            color: #d4d4d4;
-            border-color: #525252;
+            background: #78350f;
+            color: #fbbf24;
+            border-color: #f59e0b;
         }
 
         .role-badge.team {
-            background: #262626;
-            color: #d4d4d4;
-            border-color: #525252;
+            background: #991b1b;
+            color: #fecaca;
+            border-color: #ef4444;
         }
 
         .context-section {
@@ -407,6 +407,126 @@
         .warning-callout .callout-title {
             color: #fbbf24;
         }
+
+        .runtime-modes-section {
+            background: #1a1a1a;
+            border: 2px solid #525252;
+            padding: 32px 36px;
+            margin-bottom: 64px;
+        }
+
+        .runtime-modes-section h3 {
+            font-size: 16pt;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .runtime-modes-section p {
+            color: #d4d4d4;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .modes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+            background: #0f0f0f;
+        }
+
+        .modes-table th {
+            background: #262626;
+            color: #ffffff;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 9pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #404040;
+        }
+
+        .modes-table td {
+            padding: 12px 16px;
+            color: #d4d4d4;
+            font-size: 9.5pt;
+            border: 1px solid #404040;
+            line-height: 1.6;
+        }
+
+        .modes-table tr:hover {
+            background: #1a1a1a;
+        }
+
+        .mode-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 8pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .mode-badge.brownfield {
+            background: #1e3a5f;
+            color: #93c5fd;
+        }
+
+        .mode-badge.greenfield {
+            background: #1e4033;
+            color: #86efac;
+        }
+
+        .mode-badge.minefield {
+            background: #7f1d1d;
+            color: #fca5a5;
+        }
+
+        .mode-config-callout {
+            background: #0f0f0f;
+            border: 2px solid #525252;
+            padding: 24px 28px;
+            margin-bottom: 32px;
+        }
+
+        .mode-config-callout .callout-title {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .mode-config-callout .config-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .mode-config-callout .config-item {
+            background: #1a1a1a;
+            padding: 12px 16px;
+            border-left: 3px solid #525252;
+        }
+
+        .mode-config-callout .config-label {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: #a3a3a3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .mode-config-callout .config-value {
+            font-size: 9.5pt;
+            color: #e5e5e5;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -428,31 +548,9 @@
         </div>
 
         <div class="pod-intro">
-            <h3>Tools & Frameworks Powering The Rev.io Way</h3>
-            <p style="margin-bottom: 20px;">Our workflow leverages cutting-edge AI and automation tools. Here's what we use today:</p>
-
-            <div style="margin-bottom: 20px;">
-                <strong style="color: #ffffff; display: block; margin-bottom: 8px;">AI Agents & Orchestration</strong>
-                <ul style="list-style: none; padding-left: 0; color: #d4d4d4; line-height: 1.7;">
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">BMAD / Mary:</strong> AI analyst that guides discovery, generates PRDs and PRFAQ documents through strategic elicitation</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Agent-OS:</strong> Engineering orchestrator that generates technical specs, creates features/stories/tasks, and coordinates specialized sub-agents</li>
-                </ul>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <strong style="color: #ffffff; display: block; margin-bottom: 8px;">Integrations & Connectivity (via MCP)</strong>
-                <p style="font-size: 9.5pt; color: #a3a3a3; margin-bottom: 12px; font-style: italic;">Agents interact with these tools autonomously or at our request—we don't access them directly</p>
-                <ul style="list-style: none; padding-left: 0; color: #d4d4d4; line-height: 1.7;">
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Model Context Protocol (MCP):</strong> Framework enabling seamless connections between AI agents and external systems</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Notion MCP:</strong> Agents sync with Notion for PRD boards and progress tracking</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">GitHub MCP:</strong> Agents access repositories for code and documentation sync</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Devin (DeepWiki):</strong> Agents research our Rev.io repositories to understand tech stacks, coding patterns, and standards</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Context7:</strong> Agents retrieve version-specific, up-to-date documentation preventing API hallucinations and ensuring accurate code suggestions</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Zen:</strong> Agents perform consensus gathering, contrarian analysis, and deep research</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Playwright:</strong> Agents test their own work autonomously and iterate during builds</li>
-                    <li style="padding: 6px 0;"><strong style="color: #ffffff;">Figma:</strong> Agents reference UI/UX design mocks directly during implementation</li>
-                </ul>
-            </div>
+            <h3>Tools & Frameworks</h3>
+            <p style="margin-bottom: 20px;"><strong>Core Tools:</strong> <span class="role-badge pm" style="display: inline; padding: 2px 6px; margin: 0 4px;">Product Manager</span> Mary (discovery, PRDs, PRFAQs) · <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Agent-OS (Shape Spec → Write Spec → Create Tasks → Implement → Orchestrate) · <span class="role-badge team" style="display: inline; padding: 2px 6px; margin: 0 4px;">Team</span> Devin (repo research), Notion (sync), Zen (research) · <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Context7, Playwright, Figma</p>
+            <p style="font-size: 9.5pt; color: #a3a3a3; font-style: italic;">All tools require local MCP configuration. Devin outputs must be reviewed by the pod member using it.</p>
         </div>
 
         <div class="pod-intro">
@@ -466,6 +564,77 @@
             <p style="margin-top: 20px; font-size: 9.5pt;">Throughout this document, look for role badges to understand your specific responsibilities and when the pod collaborates as <span class="role-badge team" style="display: inline; padding: 3px 8px;">Team</span>. Architecture <span class="role-badge arch" style="display: inline; padding: 3px 8px;">Architect</span> joins for technical foundation work and domain experts are involved in Minefield.</p>
         </div>
 
+        <div class="callout" style="margin-bottom: 32px; border-left: 3px solid #3b82f6;">
+            <div class="callout-title">Notion is Your Source of Truth</div>
+            <div class="callout-content">
+                PRFAQs, PRDs, and sharded PRDs live in Notion. PMs edit in Notion → syncs to GitHub → Engineers read from GitHub. Progress syncs back to Notion automatically. No manual handoffs, no status meetings.
+            </div>
+        </div>
+
+        <div class="callout" style="margin-bottom: 64px; border-left: 3px solid #22c55e;">
+            <div class="callout-title">The Agent-OS Workflow (6 Phases)</div>
+            <div class="callout-content">
+                <strong>Phase 0 (Pre-work):</strong> <span class="role-badge pm" style="display: inline; padding: 2px 6px; margin: 0 4px;">Product Manager</span> Plan Product with Mary (discovery, PRFAQ, PRD)
+                <br><br>
+                <strong>Phase 1:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Shape Spec — Gather visual assets, requirements, Devin context
+                <br>
+                <strong>Phase 2:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Write Spec — Agents analyze UI patterns, map to code patterns
+                <br>
+                <strong>Phase 3:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Create Tasks — Break spec into executable tasks with visual references
+                <br>
+                <strong>Phase 4:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Implement Tasks — Generate code from visuals + standards, verify with Playwright
+                <br>
+                <strong>Phase 5:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Orchestrate Tasks — Coordinate delivery, QA, visual verification
+            </div>
+        </div>
+
+        <!-- RUNTIME MODES SECTION -->
+        <div class="runtime-modes-section">
+            <h3>Runtime Modes: How Agent-OS Adapts to Context</h3>
+            <p>Brownfield, Greenfield, and Minefield aren't just situational realities—they're <strong>runtime configurations</strong> that adjust how the agentic system behaves. Agent-OS automatically adapts its autonomy level, verification depth, and context handling based on which mode is active.</p>
+            
+            <table class="modes-table">
+                <thead>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Agent Behavior</th>
+                        <th>Verification Depth</th>
+                        <th>Autonomy</th>
+                        <th>Required Roles</th>
+                        <th>Deployment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="mode-badge brownfield">🟤 Brownfield</span></td>
+                        <td>Contextual + Diff-Based<br><span style="font-size: 8.5pt; color: #a3a3a3;">Devin gathers patterns, AST diff, schema introspection</span></td>
+                        <td>Medium<br><span style="font-size: 8.5pt; color: #a3a3a3;">Diff + regression focused</span></td>
+                        <td>Medium<br><span style="font-size: 8.5pt; color: #a3a3a3;">Proposes with justification</span></td>
+                        <td>PM, Prompt Eng, Sr Eng</td>
+                        <td>Merge via PR</td>
+                    </tr>
+                    <tr>
+                        <td><span class="mode-badge greenfield">🟢 Greenfield</span></td>
+                        <td>Generative + Blueprint-Based<br><span style="font-size: 8.5pt; color: #a3a3a3;">Mary discovery, schema-first, scaffolds from templates</span></td>
+                        <td>Low<br><span style="font-size: 8.5pt; color: #a3a3a3;">Standards compliance</span></td>
+                        <td>High<br><span style="font-size: 8.5pt; color: #a3a3a3;">Human reviews architecture</span></td>
+                        <td>PM, Prompt Eng</td>
+                        <td>Direct deploy</td>
+                    </tr>
+                    <tr>
+                        <td><span class="mode-badge minefield">🔴 Minefield</span></td>
+                        <td>Supervised + Rollback-Enabled<br><span style="font-size: 8.5pt; color: #a3a3a3;">Restricted mode, shadow branches, sandbox testing</span></td>
+                        <td>High<br><span style="font-size: 8.5pt; color: #a3a3a3;">Full validation + expert review</span></td>
+                        <td>Low<br><span style="font-size: 8.5pt; color: #a3a3a3;">Assistive, not generative</span></td>
+                        <td>PM, Sr Eng, Architect</td>
+                        <td>Staged + rollback</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 24px; font-size: 9.5pt; color: #a3a3a3; font-style: italic;">The orchestrator switches configurations automatically based on the mode. This ensures the right balance of speed, safety, and human oversight for each context.</p>
+        </div>
+
         <!-- BROWFIELD CONTEXT -->
         <div class="context-section">
             <div class="context-header">
@@ -475,6 +644,29 @@
 
             <div class="context-description">
                 <strong>Working with existing code that needs modification, enhancement, or integration.</strong> Brownfield projects require understanding what exists before making changes. You'll survey the site with Devin to understand patterns, tech stack, and existing components. This is where most of your work happens.
+            </div>
+
+            <div class="mode-config-callout">
+                <div class="callout-title">🟤 Brownfield Runtime Configuration</div>
+                <div style="color: #d4d4d4; margin-bottom: 12px; font-size: 10pt;"><strong>Agent Behavior:</strong> Contextual + Diff-Based</div>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <div class="config-label">Autonomy Level</div>
+                        <div class="config-value">Medium — Agents propose changes with justification, require human review before merge</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Verification Focus</div>
+                        <div class="config-value">Diff + Regression — Ensures changes don't break existing functionality</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Context Handling</div>
+                        <div class="config-value">High — Devin accumulates patterns, AST diff analysis, schema introspection</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Deployment Strategy</div>
+                        <div class="config-value">Merge via PR with review — Standard pull request workflow</div>
+                    </div>
+                </div>
             </div>
 
             <div class="phase">
@@ -498,8 +690,8 @@
                     </div>
 
                     <div class="callout">
-                        <div class="callout-title">Your Role as PM</div>
-                        <div class="callout-content">Define the user problem and desired solution. Decide if formal discovery with Mary is needed. For large-scoped features (like the Project Management Module example), work with Mary and create PRFAQ. If PRFAQ is required, coordinate with stakeholders: schedule review meetings with executive leadership, ensure Director of Product and VP of Product are involved, facilitate the ratification process. For smaller modifications, skip formal discovery and move directly to surveying existing code.</div>
+                        <div class="callout-title">Your Role as Product Manager</div>
+                        <div class="callout-content">Define problem and solution. Large features → work with Mary, create PRFAQ, coordinate stakeholder ratification. Small mods → skip formal discovery.</div>
                     </div>
                 </div>
             </div>
@@ -516,10 +708,14 @@
                         <div class="section-content">
                             <ul class="steps">
                                 <li>Identify all relevant repositories (API, SDK, frontend, components)</li>
+                                <li>Access Devin via MCP (requires local configuration by pod member)</li>
                                 <li>Feed Devin the problem and proposed solution</li>
                                 <li>Devin performs deep read across repositories</li>
                                 <li>Devin documents: user-facing features and workflows, component relationships, data models and schemas, existing patterns and conventions, tech stack details, dependencies across repos, potential ripple effects</li>
-                                <li>Feed Devin findings to Mary/Agent-OS for context</li>
+                                <li>All Devin outputs must be reviewed by the pod member leveraging the tool</li>
+                                <li>Technical findings reviewed by <span class="role-badge pe" style="display: inline; padding: 2px 6px;">Prompt Engineer</span> and <span class="role-badge se" style="display: inline; padding: 2px 6px;">Senior Engineer</span> with Architecture guidance as needed</li>
+                                <li>Product-level findings reviewed by <span class="role-badge pm" style="display: inline; padding: 2px 6px;">Product Manager</span></li>
+                                <li>Feed reviewed Devin findings to Mary/Agent-OS for context</li>
                             </ul>
                         </div>
                     </div>
@@ -544,7 +740,7 @@
 
                     <div class="callout">
                         <div class="callout-title">Your Role as Team</div>
-                        <div class="callout-content">Identify relevant repos. Work with Devin to understand what exists. Document findings. Feed context to agents. Never modify existing code without understanding patterns first.</div>
+                        <div class="callout-content">Identify repos → Devin survey → Review findings → Feed to agents. Never modify code without understanding patterns first.</div>
                     </div>
                 </div>
             </div>
@@ -561,33 +757,20 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li><strong>Product Manager decides</strong> if modification is large enough to need sharded PRD</li>
-                                <li>If large: Shard into numbered documents (01-, 02-, 03-...)</li>
-                                <li>If small: Create spec directly</li>
-                                <li>Feed requirements + Devin context to Agent-OS with <code>/create-spec</code></li>
-                                <li>Agent-OS generates features, stories, spec.md, tasks.md</li>
-                                <li>Pod reviews spec together</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="collaboration-callout">
-                        <div class="callout-title">Pod Collaboration: Spec Review</div>
-                        <div class="callout-content">
-                            <strong><span class="role-badge pm" style="display: inline; padding: 3px 8px; margin-right: 4px;">PM</span> <span class="role-badge pe" style="display: inline; padding: 3px 8px; margin-right: 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 3px 8px;">Senior Engineer</span></strong>
-                            <br><br>
-                            Review generated spec before implementation:
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li><strong>PM:</strong> Does this meet the user need? Is the solution correct?</li>
-                                <li><strong>Prompt Engineer:</strong> Are tasks clear? Is breakdown logical?</li>
-                                <li><strong>Senior Engineer:</strong> Does it align with existing patterns? Any risks?</li>
+                                <li><span class="role-badge pm" style="display: inline; padding: 2px 6px;">Product Manager</span> decides: sharded PRD (large) or direct spec (small)</li>
+                                <li><strong>Shape Spec:</strong> Gather visual assets if UI changes are involved</li>
+                                <li><strong>Write Spec:</strong> Feed requirements + Devin context + visual assets to Agent-OS</li>
+                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into tasks with visual references</li>
+                                <li><span class="role-badge team" style="display: inline; padding: 2px 6px;">Team</span> reviews spec → Product Manager validates product/UX → iterate until approved</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="callout">
-                        <div class="callout-title">Sharding Decision (Product Manager)</div>
-                        <div class="callout-content">Product Manager decides if modification requires sharded PRD documents or just a spec. Large modifications (multiple features, significant refactoring) get sharded. Small changes (adding a field, modifying a component) go straight to spec. Radio up to Director of Product or VP of Product for guidance if scope is unclear.</div>
+                        <div class="callout-title">Spec Review Checklist</div>
+                        <div class="callout-content">
+                            <strong>Product Manager:</strong> User need met? · <strong>Prompt Engineer:</strong> Tasks clear? · <strong>Senior Engineer:</strong> Aligns with patterns? · Radio up to Director/VP Product if scope unclear.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -604,17 +787,20 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>Engineer runs <code>/implement-spec</code></li>
-                                <li>Agent-OS orchestrates implementation using existing patterns</li>
+                                <li><strong>Implement Tasks:</strong> Engineer runs implementation—agents use visual references + standards to generate code</li>
+                                <li>Agents may use Playwright MCP to check UI in live browser</li>
+                                <li>Iterative refinement with /improve-ui commands or visual verification</li>
+                                <li><strong>Orchestrate Tasks:</strong> Coordinate delivery, QA, and verification</li>
+                                <li>Visual verification compares rendered output to mockups (like snapshot testing, AI-enhanced)</li>
                                 <li>Progress updates automatically in Notion Progress Board</li>
-                                <li>Senior Engineer monitors quality, runs verifiers, gates merges</li>
+                                <li>Senior Engineer monitors quality, runs verifiers (AI agents that check quality of completed work), gates merges</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="callout">
                         <div class="callout-title">Your Role as Senior Engineer</div>
-                        <div class="callout-content">Ensure implementation follows existing patterns documented by Devin. Monitor quality. Run verifiers. Gate merges. Also perform Prompt Engineer duties: execute <code>/create-spec</code> and <code>/implement-spec</code>, monitor progress.</div>
+                        <div class="callout-content">Follow Devin-documented patterns. Run verifiers (AI quality checks). Gate merges. Perform Prompt Engineer duties as needed.</div>
                     </div>
                 </div>
             </div>
@@ -631,6 +817,29 @@
                 <strong>Building new features from scratch with clean architecture.</strong> Greenfield is the ideal path—full discovery with Mary, PRFAQ ratification for large features, comprehensive documentation, and clear requirements. This is your happy path for new modules and major capabilities.
             </div>
 
+            <div class="mode-config-callout">
+                <div class="callout-title">🟢 Greenfield Runtime Configuration</div>
+                <div style="color: #d4d4d4; margin-bottom: 12px; font-size: 10pt;"><strong>Agent Behavior:</strong> Generative + Blueprint-Based</div>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <div class="config-label">Autonomy Level</div>
+                        <div class="config-value">High — Human reviews architecture and outputs, not every code change</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Verification Focus</div>
+                        <div class="config-value">Standards Compliance — Correctness and adherence to patterns, not regression</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Context Handling</div>
+                        <div class="config-value">Blueprint-Driven — Mary discovery, schema-first workflows, scaffolds from templates</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Deployment Strategy</div>
+                        <div class="config-value">Direct deploy — No dependency conflicts to manage</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="phase">
                 <div class="phase-header">
                     <div class="phase-number">1</div>
@@ -642,45 +851,16 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>PM invokes Mary with <code>/analyst</code></li>
-                                <li>Mary conducts elicitation—asking strategic questions</li>
-                                <li>PM answers about problem, users, goals, constraints, competitive landscape</li>
-                                <li>PM incorporates insights from client focus groups, prospect feedback, competitive research</li>
-                                <li>Mary creates ProjectBrief and PRFAQ</li>
+                                <li>PM invokes Mary with <code>/analyst</code> → strategic elicitation</li>
+                                <li>Mary creates ProjectBrief, PRFAQ (large features), PRD, sharded PRDs</li>
+                                <li>Large features: PRFAQ ratified by executive/product/sales leadership</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="example-box">
-                        <div class="example-box-title">Example: Project Management Module</div>
-                        <div class="example-box-content">
-                            <strong>Client Context:</strong> Multiple prospects said "We need project management in your PSA" and clients are using external tools creating workflow friction.
-                            <br><br>
-                            <strong>PM brings to Mary:</strong> "We need integrated project management in Rev.io PSA. Clients are losing visibility as projects scale."
-                            <br><br>
-                            <strong>Mary elicits:</strong> Who are the end users? What are they trying to accomplish? What does success look like?
-                            <br><br>
-                            <strong>Mary generates:</strong> ProjectBrief + PRFAQ documenting vision, customer value prop, competitive positioning
-                        </div>
-                    </div>
-
-                    <div class="collaboration-callout">
-                        <div class="callout-title">Critical Gate: PRFAQ Ratification</div>
-                        <div class="callout-content">
-                            <strong>For large-scoped features (brand new modules), PRFAQ must be ratified by:</strong>
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li>Executive leadership (CEO, COO)</li>
-                                <li>Product leadership</li>
-                                <li>Sales/success teams</li>
-                            </ul>
-                            <br>
-                            <strong>Process:</strong> PM presents PRFAQ, gathers feedback, iterates with Mary until ratified. This validates customer value before building anything.
                         </div>
                     </div>
 
                     <div class="callout">
-                        <div class="callout-title">Your Role as PM</div>
-                        <div class="callout-content">Lead discovery with external and internal stakeholders. Work with Mary to document vision. If PRFAQ is needed, coordinate review meetings: schedule with stakeholders (executive leadership, product leadership, sales/success teams), ensure Director of Product and VP of Product are involved, facilitate ratification process with Mary iterations. For smaller features, skip PRFAQ and proceed directly to spec creation.</div>
+                        <div class="callout-title">Your Role as Product Manager</div>
+                        <div class="callout-content">Work with Mary on discovery. Large features → coordinate PRFAQ ratification with stakeholders. Small features → skip PRFAQ.</div>
                     </div>
                 </div>
             </div>
@@ -695,40 +875,11 @@
                     <div class="section">
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
-                            <p style="margin-bottom: 16px;"><strong>Two parallel work streams:</strong></p>
-                        </div>
-                    </div>
-
-                    <div class="parallel-streams">
-                        <div class="callout-title">PM Stream: Create PRD</div>
-                        <div class="callout-content">
-                            <strong><span class="role-badge pm" style="display: inline; padding: 3px 8px;">PM</span> works with Mary</strong>
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li>Mary creates full PRD (problem, requirements, epics, success criteria)</li>
-                                <li>Team shards PRD into numbered documents if scope is large</li>
-                                <li>Validate sharded documents</li>
+                            <ul class="steps">
+                                <li><span class="role-badge pm" style="display: inline; padding: 2px 6px;">Product Manager</span> + Mary: Create full PRD, shard if large scope</li>
+                                <li><span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> <span class="role-badge se" style="display: inline; padding: 2px 6px;">Senior Engineer</span> <span class="role-badge pe" style="display: inline; padding: 2px 6px;">Prompt Engineer</span> Set up: Notion boards, Agent-OS config, standards</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="parallel-streams">
-                        <div class="callout-title">Engineering Stream: Set Up Infrastructure</div>
-                        <div class="callout-content">
-                            <strong><span class="role-badge arch" style="display: inline; padding: 3px 8px;">Architect</span> <span class="role-badge se" style="display: inline; padding: 3px 8px;">Senior Engineer</span> <span class="role-badge pe" style="display: inline; padding: 3px 8px;">Prompt Engineer</span></strong>
-                            <br><br>
-                            Set up Notion boards and Agent-OS config:
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li>PRD Board (Notion → GitHub sync)</li>
-                                <li>Progress Board (GitHub → Notion sync)</li>
-                                <li>product/mission.md, product/roadmap.md, product/tech-stack.md</li>
-                                <li>Standards from templates</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as PM</div>
-                        <div class="callout-content">Work with Mary to create PRD. Decide if PRD needs sharding (radio up to Director/VP of Product for guidance if unclear). Collaborate with team to shard if needed. Hand off to engineering when ready.</div>
                     </div>
                 </div>
             </div>
@@ -745,17 +896,12 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>Engineer feeds sharded PRD document to Agent-OS with <code>/create-spec</code></li>
-                                <li>Agent-OS reads PRD + project config + standards</li>
-                                <li>Agent-OS generates features, stories, spec.md, tasks.md</li>
-                                <li>Pod reviews spec together</li>
+                                <li><strong>Shape Spec:</strong> Gather visual assets (UX Figma or Product Manager mockups)</li>
+                                <li><strong>Write Spec:</strong> Feed PRD + visuals to Agent-OS</li>
+                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into tasks with visual references</li>
+                                <li><span class="role-badge team" style="display: inline; padding: 2px 6px;">Team</span> reviews → Product Manager validates → iterate until approved</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as Prompt Engineer</div>
-                        <div class="callout-content">Feed PRD documents to Agent-OS sequentially. Review generated specs. Facilitate team review.</div>
                     </div>
                 </div>
             </div>
@@ -772,17 +918,11 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>Engineer runs <code>/implement-spec</code></li>
-                                <li>Agent-OS orchestrates implementation</li>
-                                <li>Progress updates automatically in Notion</li>
-                                <li>Senior Engineer monitors quality, runs verifiers, gates merges</li>
+                                <li><strong>Implement:</strong> Agents use visuals + standards → Playwright checks UI → iterative refinement</li>
+                                <li><strong>Orchestrate:</strong> Coordinate delivery, QA, visual verification</li>
+                                <li>Progress syncs to Notion → Senior Engineer runs verifiers → gates merges</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as PM</div>
-                        <div class="callout-content">Watch Notion Progress Board. No status meetings needed. Stay connected with clients for feedback.</div>
                     </div>
                 </div>
             </div>
@@ -799,6 +939,29 @@
                 <strong>Working with legacy, brittle code that carries high risk.</strong> Minefield areas are 5+ years old, are brittle, or support critical business functions (billing, payments). Architecture and domain experts must be heavily involved. Re-architecting is an explicit option—sometimes the last time you modify before rewriting completely.
             </div>
 
+            <div class="mode-config-callout">
+                <div class="callout-title">🔴 Minefield Runtime Configuration</div>
+                <div style="color: #d4d4d4; margin-bottom: 12px; font-size: 10pt;"><strong>Agent Behavior:</strong> Supervised + Rollback-Enabled</div>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <div class="config-label">Autonomy Level</div>
+                        <div class="config-value">Low — System is assistive, not generative. No autonomous commits or merges</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Verification Focus</div>
+                        <div class="config-value">Full Validation — Dual validation (Senior Engineer + Architect), expert review required</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Context Handling</div>
+                        <div class="config-value">Restricted Mode — Shadow branches, rollback checkpoints, sandbox testing before production</div>
+                    </div>
+                    <div class="config-item">
+                        <div class="config-label">Deployment Strategy</div>
+                        <div class="config-value">Staged deploy with rollback — Heavy gates, domain expert validation</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="phase">
                 <div class="phase-header">
                     <div class="phase-number">1</div>
@@ -811,33 +974,10 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>PM presents the problem: What's the user's struggle?</li>
-                                <li>Architecture identifies this as Minefield: What can and can't be done?</li>
-                                <li>Domain experts weigh in on constraints and ripple effects</li>
-                                <li>Team aligns on solution approach</li>
-                                <li>Decision point: Modify existing or re-architect?</li>
+                                <li>Product Manager presents problem → <span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> identifies Minefield → Domain experts weigh constraints</li>
+                                <li>Decision: Modify existing or re-architect? (If repeat changes likely in 3-6-9 months → re-architect)</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="warning-callout">
-                        <div class="callout-title">Re-Architect Decision Point</div>
-                        <div class="callout-content">
-                            <strong>Critical question: Is this the last time?</strong>
-                            <br><br>
-                            If you'll need to modify this again in 3-6-9 months, consider re-architecting now. This spins off into either:
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li>PRFAQ for large re-architecture</li>
-                                <li>Smaller-scale PRD for targeted rewrite</li>
-                            </ul>
-                            <br>
-                            Architecture leads this decision with domain expert input.
-                        </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as PM</div>
-                        <div class="callout-content">Define user problem and desired solution. Work with Architecture to understand constraints. Support the re-architect decision if needed.</div>
                     </div>
                 </div>
             </div>
@@ -854,24 +994,11 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>Identify all relevant repositories</li>
-                                <li>Devin performs deep read across codebase documenting: legacy patterns, brittle dependencies, critical business logic, constraint boundaries, integration points, data flows</li>
-                                <li>Architecture reviews Devin findings</li>
-                                <li>Domain experts validate constraints and dependencies</li>
-                                <li>Document ripple effects of potential changes</li>
-                                <li>Feed comprehensive context to agents</li>
+                                <li>Devin surveys: legacy patterns, brittle dependencies, business logic, constraints</li>
+                                <li><span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> + domain experts validate findings (NOT autonomous—heavy human review)</li>
+                                <li>Document ripple effects → feed to agents</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Critical: Humans Heavily in the Loop</div>
-                        <div class="callout-content">Architecture and domain experts must validate Devin findings. This is NOT autonomous. Review patterns, constraints, and dependencies before proceeding.</div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as Architect</div>
-                        <div class="callout-content">Lead site survey. Validate Devin findings. Identify constraints. Document ripple effects. Guide re-architect decision if needed.</div>
                     </div>
                 </div>
             </div>
@@ -889,31 +1016,10 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>Team creates spec with heavy architecture review</li>
-                                <li>Feed requirements + Devin context + architecture guidance to Agent-OS</li>
-                                <li>Agent-OS generates spec respecting constraints</li>
-                                <li>Architecture and domain experts review</li>
-                                <li>Extra validation gate before proceeding</li>
+                                <li><strong>Shape → Write → Create:</strong> Gather visuals → Feed to Agent-OS with constraints → Tasks respect boundaries</li>
+                                <li><span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> + domain experts review → Extra gate: Senior Engineer validates alignment, Architect confirms ripple effects acceptable</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="warning-callout">
-                        <div class="callout-title">Extra Gate: Minefield Review</div>
-                        <div class="callout-content">
-                            <strong>Before implementation:</strong>
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li>Senior Engineer reviews architecture alignment</li>
-                                <li>Domain experts validate business logic changes</li>
-                                <li>Architecture confirms ripple effects are acceptable</li>
-                                <li>Team agrees to proceed</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as Senior Engineer</div>
-                        <div class="callout-content">Lead spec review with Architecture. Ensure constraints are respected. Validate ripple effects. Gate before implementation.</div>
                     </div>
                 </div>
             </div>
@@ -931,57 +1037,11 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li>Engineer runs <code>/implement-spec</code></li>
-                                <li>Senior Engineer monitors closely</li>
-                                <li>Architecture reviews critical changes</li>
-                                <li>Domain experts validate business logic</li>
-                                <li>Progress updates in Notion</li>
-                                <li>Extended quality gates before merge</li>
+                                <li><strong>Implement → Orchestrate:</strong> Agents generate code → Playwright checks → visual verification</li>
+                                <li>Senior Engineer monitors closely → <span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> reviews critical changes → Domain experts validate</li>
+                                <li>Extended gate: Senior Engineer runs verifiers → Architect reviews paths → Domain validates outcomes → Team approves</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="warning-callout">
-                        <div class="callout-title">Extended Quality Gate</div>
-                        <div class="callout-content">
-                            <strong>Before merge approval:</strong>
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                <li>Senior Engineer runs all verifiers</li>
-                                <li>Architecture reviews critical paths</li>
-                                <li>Domain experts validate business outcomes</li>
-                                <li>Team agrees changes are safe</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="callout">
-                        <div class="callout-title">Your Role as Architect</div>
-                        <div class="callout-content">Review critical implementation changes. Validate architecture integrity. Ensure Minefield remains stable. Approve final merge.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="phase">
-            <div class="phase-header">
-                <div class="phase-number">📁</div>
-                <div class="phase-title">Where Your Work Lives</div>
-            </div>
-            <div class="phase-content">
-                <div class="section">
-                    <div class="section-title">Notion (PM Workspace)</div>
-                    <div class="section-content">
-                        <ul class="steps">
-                            <li><strong>PRD Board</strong> — Your PRDs and specs (Notion → GitHub sync)</li>
-                            <li><strong>Progress Board</strong> — Real-time engineering progress (GitHub → Notion sync)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div class="section-title">GitHub (Engineering Workspace)</div>
-                    <div class="section-content">
-                        <p>Engineers read specs from GitHub. When PM edits in Notion, changes sync. When engineers make progress, everyone sees it in Notion. Everything stays in sync automatically.</p>
                     </div>
                 </div>
             </div>
@@ -989,7 +1049,7 @@
 
         <div class="callout" style="margin-top: 64px;">
             <div class="callout-title">The Bottom Line</div>
-            <div class="callout-content">Each pod member focuses on their expertise. <strong>PM</strong> drives vision and validates customer value. <strong>Prompt Engineer</strong> orchestrates AI development. <strong>Senior Engineer</strong> ensures quality and performs implementation duties. <strong>Architecture</strong> defines technical foundation and guides Minefield work. Mary handles documentation. Agent-OS handles implementation. Devin surveys existing code. The pod focuses on building the right thing, the right way, for our clients—whether in Brownfield, Greenfield, or Minefield.</div>
+            <div class="callout-content"><span class="role-badge pm" style="display: inline; padding: 3px 8px; margin: 0 4px;">Product Manager</span> drives vision · <span class="role-badge pe" style="display: inline; padding: 3px 8px; margin: 0 4px;">Prompt Engineer</span> orchestrates AI · <span class="role-badge se" style="display: inline; padding: 3px 8px; margin: 0 4px;">Senior Engineer</span> ensures quality · <span class="role-badge arch" style="display: inline; padding: 3px 8px; margin: 0 4px;">Architect</span> guides Minefield. Mary handles product planning. Agent-OS implements via 6-phase workflow. Devin surveys code. Build the right thing, the right way—Brownfield, Greenfield, or Minefield.</div>
         </div>
     </div>
 </body>
