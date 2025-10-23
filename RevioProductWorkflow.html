@@ -601,7 +601,7 @@
                         <th>Verification Depth</th>
                         <th>Autonomy</th>
                         <th>Required Roles</th>
-                        <th>Deployment</th>
+                        <th>Approval Gates</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -611,7 +611,7 @@
                         <td>Medium<br><span style="font-size: 8.5pt; color: #a3a3a3;">Diff + regression focused</span></td>
                         <td>Medium<br><span style="font-size: 8.5pt; color: #a3a3a3;">Proposes with justification</span></td>
                         <td>PM, Prompt Eng, Sr Eng</td>
-                        <td>Merge via PR</td>
+                        <td>Standard review</td>
                     </tr>
                     <tr>
                         <td><span class="mode-badge greenfield">🟢 Greenfield</span></td>
@@ -619,7 +619,7 @@
                         <td>Low<br><span style="font-size: 8.5pt; color: #a3a3a3;">Standards compliance</span></td>
                         <td>High<br><span style="font-size: 8.5pt; color: #a3a3a3;">Human reviews architecture</span></td>
                         <td>PM, Prompt Eng</td>
-                        <td>Direct deploy</td>
+                        <td>Lightweight gates</td>
                     </tr>
                     <tr>
                         <td><span class="mode-badge minefield">🔴 Minefield</span></td>
@@ -627,7 +627,7 @@
                         <td>High<br><span style="font-size: 8.5pt; color: #a3a3a3;">Full validation + expert review</span></td>
                         <td>Low<br><span style="font-size: 8.5pt; color: #a3a3a3;">Assistive, not generative</span></td>
                         <td>PM, Sr Eng, Architect</td>
-                        <td>Staged + rollback</td>
+                        <td>Multi-stage validation</td>
                     </tr>
                 </tbody>
             </table>
@@ -652,7 +652,7 @@
                 <div class="config-grid">
                     <div class="config-item">
                         <div class="config-label">Autonomy Level</div>
-                        <div class="config-value">Medium — Agents propose changes with justification, require human review before merge</div>
+                        <div class="config-value">Medium — Agents propose changes with justification, require human review</div>
                     </div>
                     <div class="config-item">
                         <div class="config-label">Verification Focus</div>
@@ -663,8 +663,8 @@
                         <div class="config-value">High — Devin accumulates patterns, AST diff analysis, schema introspection</div>
                     </div>
                     <div class="config-item">
-                        <div class="config-label">Deployment Strategy</div>
-                        <div class="config-value">Merge via PR with review — Standard pull request workflow</div>
+                        <div class="config-label">Approval Gates</div>
+                        <div class="config-value">Standard review — Pod validates spec and implementation quality</div>
                     </div>
                 </div>
             </div>
@@ -834,8 +834,8 @@
                         <div class="config-value">Blueprint-Driven — Mary discovery, schema-first workflows, scaffolds from templates</div>
                     </div>
                     <div class="config-item">
-                        <div class="config-label">Deployment Strategy</div>
-                        <div class="config-value">Direct deploy — No dependency conflicts to manage</div>
+                        <div class="config-label">Approval Gates</div>
+                        <div class="config-value">Lightweight gates — Focus on architecture review and standards adherence</div>
                     </div>
                 </div>
             </div>
@@ -945,7 +945,7 @@
                 <div class="config-grid">
                     <div class="config-item">
                         <div class="config-label">Autonomy Level</div>
-                        <div class="config-value">Low — System is assistive, not generative. No autonomous commits or merges</div>
+                        <div class="config-value">Low — System is assistive, not generative. No autonomous commits</div>
                     </div>
                     <div class="config-item">
                         <div class="config-label">Verification Focus</div>
@@ -953,11 +953,11 @@
                     </div>
                     <div class="config-item">
                         <div class="config-label">Context Handling</div>
-                        <div class="config-value">Restricted Mode — Shadow branches, rollback checkpoints, sandbox testing before production</div>
+                        <div class="config-value">Restricted Mode — Shadow branches, rollback checkpoints, sandbox testing</div>
                     </div>
                     <div class="config-item">
-                        <div class="config-label">Deployment Strategy</div>
-                        <div class="config-value">Staged deploy with rollback — Heavy gates, domain expert validation</div>
+                        <div class="config-label">Approval Gates</div>
+                        <div class="config-value">Multi-stage validation — Extended gates with Architect and domain expert sign-off</div>
                     </div>
                 </div>
             </div>
