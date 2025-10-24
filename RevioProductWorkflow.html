@@ -549,7 +549,7 @@
 
         <div class="pod-intro">
             <h3>Tools & Frameworks</h3>
-            <p style="margin-bottom: 20px;"><strong>Core Tools:</strong> <span class="role-badge pm" style="display: inline; padding: 2px 6px; margin: 0 4px;">Product Manager</span> Mary (discovery, PRDs, PRFAQs) · <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Agent-OS (Shape Spec → Write Spec → Create Tasks → Implement → Orchestrate) · <span class="role-badge team" style="display: inline; padding: 2px 6px; margin: 0 4px;">Team</span> Devin (repo research), Notion (sync), Zen (research) · <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Context7, Playwright, Figma</p>
+            <p style="margin-bottom: 20px;"><strong>Core Tools:</strong> <span class="role-badge pm" style="display: inline; padding: 2px 6px; margin: 0 4px;">Product Manager</span> Mary (discovery, PRDs, PRFAQs) · <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Engineers</span> Agent-OS (Shape Spec → Write Spec → Create Tasks → Implement → Orchestrate), Context7, Playwright · <span class="role-badge team" style="display: inline; padding: 2px 6px; margin: 0 4px;">Team</span> Devin (repo research), Notion (sync), Zen (research), Figma</p>
             <p style="font-size: 9.5pt; color: #a3a3a3; font-style: italic;">All tools require local MCP configuration. Devin outputs must be reviewed by the pod member using it.</p>
         </div>
 
@@ -574,17 +574,17 @@
         <div class="callout" style="margin-bottom: 64px; border-left: 3px solid #22c55e;">
             <div class="callout-title">The Agent-OS Workflow (6 Phases)</div>
             <div class="callout-content">
-                <strong>Phase 0 (Pre-work):</strong> <span class="role-badge pm" style="display: inline; padding: 2px 6px; margin: 0 4px;">Product Manager</span> Plan Product with Mary (discovery, PRFAQ, PRD)
-                <br><br>
-                <strong>Phase 1:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Shape Spec — Gather visual assets, requirements, Devin context
+                <strong>Phase 0 (Pre-work):</strong> Plan Product with Mary (discovery, PRFAQ, PRD)
                 <br>
-                <strong>Phase 2:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Write Spec — Agents analyze UI patterns, map to code patterns
+                <strong>Phase 1:</strong> Shape Spec — Gather visual assets, requirements, Devin context
                 <br>
-                <strong>Phase 3:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Create Tasks — Break spec into executable tasks with visual references
+                <strong>Phase 2:</strong> Write Spec — Agents analyze UI patterns, map to code patterns
                 <br>
-                <strong>Phase 4:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Implement Tasks — Generate code from visuals + standards, verify with Playwright
+                <strong>Phase 3:</strong> Create Tasks — Break spec into executable tasks with visual references
                 <br>
-                <strong>Phase 5:</strong> <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> Orchestrate Tasks — Coordinate delivery, QA, visual verification
+                <strong>Phase 4:</strong> Implement Tasks — Generate code from visuals + standards, verify with Playwright
+                <br>
+                <strong>Phase 5:</strong> Orchestrate Tasks — Coordinate delivery, QA, visual verification
             </div>
         </div>
 
@@ -1050,6 +1050,123 @@
         <div class="callout" style="margin-top: 64px;">
             <div class="callout-title">The Bottom Line</div>
             <div class="callout-content"><span class="role-badge pm" style="display: inline; padding: 3px 8px; margin: 0 4px;">Product Manager</span> drives vision · <span class="role-badge pe" style="display: inline; padding: 3px 8px; margin: 0 4px;">Prompt Engineer</span> orchestrates AI · <span class="role-badge se" style="display: inline; padding: 3px 8px; margin: 0 4px;">Senior Engineer</span> ensures quality · <span class="role-badge arch" style="display: inline; padding: 3px 8px; margin: 0 4px;">Architect</span> guides Minefield. Mary handles product planning. Agent-OS implements via 6-phase workflow. Devin surveys code. Build the right thing, the right way—Brownfield, Greenfield, or Minefield.</div>
+        </div>
+
+        <!-- RACI CHART SECTION -->
+        <div class="runtime-modes-section" style="margin-top: 64px;">
+            <h3>Pod Collaboration Model: RACI Chart</h3>
+            <p>This chart defines responsibility and accountability for key activities across the workflow. <strong>R = Responsible</strong> (does the work), <strong>A = Accountable</strong> (single owner of outcome), <strong>C = Consulted</strong> (provides input), <strong>I = Informed</strong> (kept in the loop).</p>
+
+            <table class="modes-table">
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th><span class="role-badge pm" style="display: inline-block; margin: 0;">Product Manager</span></th>
+                        <th><span class="role-badge pe" style="display: inline-block; margin: 0;">Prompt Engineer</span></th>
+                        <th><span class="role-badge se" style="display: inline-block; margin: 0;">Senior Engineer</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Problem Definition & User Need</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">R/A</span> Defines problem, articulates user pain, decides solution approach</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">C</span> Provides input on technical feasibility</td>
+                        <td><span style="color: #86efac; font-weight: 600;">C</span> Provides input on technical feasibility and patterns</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discovery & PRFAQ (Greenfield)</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">R/A</span> Works with Mary, coordinates stakeholder ratification</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">C</span> Consulted on scope and vision</td>
+                        <td><span style="color: #86efac; font-weight: 600;">C</span> Consulted on scope and vision</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PRD Creation & Sharding</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">R/A</span> Creates PRD with Mary, decides sharding strategy</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Assists PM in creating PRD and ensures validity</td>
+                        <td><span style="color: #86efac; font-weight: 600;">C</span> Reviews technical approach and architecture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Architecture & Pattern Decision</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Informed of technical approach</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">C</span> Provides input on patterns and standards</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R/A</span> Decides architecture, patterns, and technical standards</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shape Spec (Visual Assets)</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">C</span> Provides mockups or confirms UX direction</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Gathers visual assets from Figma/mockups</td>
+                        <td><span style="color: #86efac; font-weight: 600;">C</span> Reviews asset completeness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Write Spec (Agent-OS Input)</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Informed of spec progress</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Feeds PRD + context + visuals to Agent-OS</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R</span> Co-authors spec, ensures pattern alignment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Create Tasks (Task Breakdown)</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Reviews task structure</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Works with Agent-OS to break down spec</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R</span> Validates task structure and dependencies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spec Review & Approval</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">A</span> Final approval on product/UX alignment</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">C</span> Confirms task clarity and executability</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R</span> Validates technical approach and patterns</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Implementation (Code Generation)</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Informed of progress</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Runs Agent-OS implementation, iterates</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R/A</span> Monitors quality, validates patterns</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visual Verification & UI Checks</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">C</span> Reviews UI against mockups</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Runs Playwright checks, /improve-ui commands</td>
+                        <td><span style="color: #86efac; font-weight: 600;">A</span> Validates output quality</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quality Verification (Verifiers)</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Informed of quality status</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">C</span> Assists with verification issues</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R/A</span> Runs AI verifiers, gates merges</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security/Privacy/Compliance Review</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Informed of compliance status</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Implements prompt/PII guardrails, AI output validation</td>
+                        <td><span style="color: #86efac; font-weight: 600;">A</span> Validates security, model/data access, audit logging</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Orchestration & Delivery</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">I</span> Tracks progress</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Coordinates task completion</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R/A</span> Final delivery coordination, merge approval</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Release Feature</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">R/A</span> Creates release notes, enables feature flag</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">C</span> Reviews release notes for technical accuracy</td>
+                        <td><span style="color: #86efac; font-weight: 600;">C</span> Reviews release notes for technical accuracy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Minefield Risk Assessment</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">A</span> Escalates to Architect if needed</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">I</span> Informed of constraints</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R</span> Identifies risk, involves Architect</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Post-Launch Monitoring & Iteration</strong></td>
+                        <td><span style="color: #93c5fd; font-weight: 600;">A</span> Decides iteration priorities based on user feedback and data</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Monitors AI performance, implements refinements</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R</span> Monitors system health, implements technical iterations</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 24px; font-size: 9.5pt; color: #a3a3a3; font-style: italic;"><strong>Overlapping Collaboration:</strong> Throughout the workflow, <span class="role-badge pe" style="display: inline; padding: 2px 6px; margin: 0 4px;">Prompt Engineer</span> and <span class="role-badge se" style="display: inline; padding: 2px 6px; margin: 0 4px;">Senior Engineer</span> work closely together on spec creation and implementation, with Senior Engineer performing Prompt Engineer duties as needed. <span class="role-badge pm" style="display: inline; padding: 2px 6px; margin: 0 4px;">Product Manager</span> stays informed through progress updates, stepping in for approvals and validation checkpoints.</p>
         </div>
     </div>
 </body>
