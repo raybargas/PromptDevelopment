@@ -572,19 +572,19 @@
         </div>
 
         <div class="callout" style="margin-bottom: 64px; border-left: 3px solid #22c55e;">
-            <div class="callout-title">The Agent-OS Workflow (6 Phases)</div>
+            <div class="callout-title">The Agent-OS Workflow (5 Phases + Pre-work)</div>
             <div class="callout-content">
                 <strong>Phase 0 (Pre-work):</strong> Plan Product with Mary (discovery, PRFAQ, PRD)
                 <br>
-                <strong>Phase 1:</strong> Shape Spec — Gather visual assets, requirements, Devin context
+                <strong>Phase 1:</strong> Shape Spec — Interactive requirements clarification, gather visuals, create requirements.md folder with context
                 <br>
-                <strong>Phase 2:</strong> Write Spec — Agents analyze UI patterns, map to code patterns
+                <strong>Phase 2:</strong> Write Spec — Build formal specification from shaped requirements, analyze UI patterns, map to code patterns
                 <br>
-                <strong>Phase 3:</strong> Create Tasks — Break spec into executable tasks with visual references
+                <strong>Phase 3:</strong> Create Tasks — Break spec into grouped, prioritized tasks with visual references and dependencies
                 <br>
-                <strong>Phase 4:</strong> Implement Tasks — Generate code from visuals + standards, verify with Playwright
+                <strong>Phase 4:</strong> Implement Tasks — Single-agent execution: generate code from visuals + standards, verify with Playwright
                 <br>
-                <strong>Phase 5:</strong> Orchestrate Tasks — Coordinate delivery, QA, visual verification
+                <strong>Phase 5:</strong> Orchestrate Tasks — Multi-agent coordination for complex features requiring task subdivision and parallel execution
             </div>
         </div>
 
@@ -758,9 +758,9 @@
                         <div class="section-content">
                             <ul class="steps">
                                 <li><span class="role-badge pm" style="display: inline; padding: 2px 6px;">Product Manager</span> decides: sharded PRD (large) or direct spec (small)</li>
-                                <li><strong>Shape Spec:</strong> Gather visual assets if UI changes are involved</li>
-                                <li><strong>Write Spec:</strong> Feed requirements + Devin context + visual assets to Agent-OS</li>
-                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into tasks with visual references</li>
+                                <li><strong>Shape Spec:</strong> Interactive requirements clarification—gather visual assets, collect code references from Devin findings, create structured requirements.md folder with complete context</li>
+                                <li><strong>Write Spec:</strong> Agent-OS builds formal specification from shaped requirements, analyzes UI patterns, maps to existing code patterns</li>
+                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into grouped, prioritized tasks with visual references and dependency mapping</li>
                                 <li><span class="role-badge team" style="display: inline; padding: 2px 6px;">Team</span> reviews spec → Product Manager validates product/UX → iterate until approved</li>
                             </ul>
                         </div>
@@ -787,10 +787,10 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li><strong>Implement Tasks:</strong> Engineer runs implementation—agents use visual references + standards to generate code</li>
+                                <li><strong>Implement Tasks:</strong> Single-agent execution—Engineer runs implementation, agents use visual references + standards to generate code</li>
                                 <li>Agents may use Playwright MCP to check UI in live browser</li>
                                 <li>Iterative refinement with /improve-ui commands or visual verification</li>
-                                <li><strong>Orchestrate Tasks:</strong> Coordinate delivery, QA, and verification</li>
+                                <li><strong>Orchestrate Tasks:</strong> For complex features requiring multi-agent coordination—subdivide tasks, assign to parallel agents, coordinate execution and integration</li>
                                 <li>Visual verification compares rendered output to mockups (like snapshot testing, AI-enhanced)</li>
                                 <li>Progress updates automatically in Notion Progress Board</li>
                                 <li>Senior Engineer monitors quality, runs verifiers (AI agents that check quality of completed work), gates merges</li>
@@ -896,9 +896,9 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li><strong>Shape Spec:</strong> Gather visual assets (UX Figma or Product Manager mockups)</li>
-                                <li><strong>Write Spec:</strong> Feed PRD shards (or full PRD if small) + visuals to Agent-OS</li>
-                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into tasks with visual references</li>
+                                <li><strong>Shape Spec:</strong> Interactive requirements clarification—gather visual assets (UX Figma or Product Manager mockups), create structured requirements.md folder with complete context</li>
+                                <li><strong>Write Spec:</strong> Agent-OS builds formal specification from shaped requirements and PRD shards (or full PRD if small), analyzes UI patterns, maps to code architecture</li>
+                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into grouped, prioritized tasks with visual references and dependency mapping</li>
                                 <li><span class="role-badge team" style="display: inline; padding: 2px 6px;">Team</span> reviews → Product Manager validates → iterate until approved</li>
                             </ul>
                         </div>
@@ -918,8 +918,8 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li><strong>Implement:</strong> Agents use visuals + standards → Playwright checks UI → iterative refinement</li>
-                                <li><strong>Orchestrate:</strong> Coordinate delivery, QA, visual verification</li>
+                                <li><strong>Implement:</strong> Single-agent execution—agents use visuals + standards → Playwright checks UI → iterative refinement</li>
+                                <li><strong>Orchestrate:</strong> For complex features—multi-agent coordination, task subdivision, parallel execution, integration management</li>
                                 <li>Progress syncs to Notion → Senior Engineer runs verifiers → gates merges</li>
                             </ul>
                         </div>
@@ -1016,7 +1016,9 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li><strong>Shape → Write → Create:</strong> Gather visuals → Feed to Agent-OS with constraints → Tasks respect boundaries</li>
+                                <li><strong>Shape Spec:</strong> Interactive requirements clarification with strict constraints—gather visuals, document legacy boundaries, create requirements.md with risk assessment</li>
+                                <li><strong>Write Spec:</strong> Agent-OS builds formal specification from shaped requirements, maps to legacy patterns, documents ripple effects and mitigation strategies</li>
+                                <li><strong>Create Tasks:</strong> Agent-OS breaks spec into tasks that respect system boundaries, with explicit dependency and risk flagging</li>
                                 <li><span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> + domain experts review → Extra gate: Senior Engineer validates alignment, Architect confirms ripple effects acceptable</li>
                             </ul>
                         </div>
@@ -1037,7 +1039,8 @@
                         <div class="section-title">What Happens</div>
                         <div class="section-content">
                             <ul class="steps">
-                                <li><strong>Implement → Orchestrate:</strong> Agents generate code → Playwright checks → visual verification</li>
+                                <li><strong>Implement Tasks:</strong> Supervised single-agent execution—agents generate code with human oversight at each step → Playwright checks → visual verification</li>
+                                <li><strong>Orchestrate Tasks:</strong> If complexity requires multi-agent coordination—subdivide with extreme caution, parallel execution with rollback checkpoints</li>
                                 <li>Senior Engineer monitors closely → <span class="role-badge arch" style="display: inline; padding: 2px 6px;">Architect</span> reviews critical changes → Domain experts validate</li>
                                 <li>Extended gate: Senior Engineer runs verifiers → Architect reviews paths → Domain validates outcomes → Team approves</li>
                             </ul>
@@ -1049,7 +1052,7 @@
 
         <div class="callout" style="margin-top: 64px;">
             <div class="callout-title">The Bottom Line</div>
-            <div class="callout-content"><span class="role-badge pm" style="display: inline; padding: 3px 8px; margin: 0 4px;">Product Manager</span> drives vision · <span class="role-badge pe" style="display: inline; padding: 3px 8px; margin: 0 4px;">Prompt Engineer</span> orchestrates AI · <span class="role-badge se" style="display: inline; padding: 3px 8px; margin: 0 4px;">Senior Engineer</span> ensures quality · <span class="role-badge arch" style="display: inline; padding: 3px 8px; margin: 0 4px;">Architect</span> guides Minefield. Mary handles product planning. Agent-OS implements via 6-phase workflow. Devin surveys code. Build the right thing, the right way—Brownfield, Greenfield, or Minefield.</div>
+            <div class="callout-content"><span class="role-badge pm" style="display: inline; padding: 3px 8px; margin: 0 4px;">Product Manager</span> drives vision · <span class="role-badge pe" style="display: inline; padding: 3px 8px; margin: 0 4px;">Prompt Engineer</span> orchestrates AI · <span class="role-badge se" style="display: inline; padding: 3px 8px; margin: 0 4px;">Senior Engineer</span> ensures quality · <span class="role-badge arch" style="display: inline; padding: 3px 8px; margin: 0 4px;">Architect</span> guides Minefield. Mary handles product planning. Agent-OS implements via 5-phase workflow (Shape → Write → Create → Implement → Orchestrate). Devin surveys code. Build the right thing, the right way—Brownfield, Greenfield, or Minefield.</div>
         </div>
 
         <!-- RACI CHART SECTION -->
@@ -1092,22 +1095,22 @@
                         <td><span style="color: #86efac; font-weight: 600;">R/A</span> Decides architecture, patterns, and technical standards</td>
                     </tr>
                     <tr>
-                        <td><strong>Shape Spec (Visual Assets)</strong></td>
+                        <td><strong>Shape Spec (Interactive Requirements)</strong></td>
                         <td><span style="color: #93c5fd; font-weight: 600;">C</span> Provides mockups or confirms UX direction</td>
-                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Gathers visual assets from Figma/mockups</td>
-                        <td><span style="color: #86efac; font-weight: 600;">C</span> Reviews asset completeness</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Leads interactive clarification, gathers visuals, creates requirements.md folder</td>
+                        <td><span style="color: #86efac; font-weight: 600;">C</span> Reviews completeness and technical feasibility</td>
                     </tr>
                     <tr>
-                        <td><strong>Write Spec (Agent-OS Input)</strong></td>
+                        <td><strong>Write Spec (Formal Specification)</strong></td>
                         <td><span style="color: #93c5fd; font-weight: 600;">I</span> Informed of spec progress</td>
-                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Feeds PRD + context + visuals to Agent-OS</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Works with Agent-OS to build formal spec from shaped requirements</td>
                         <td><span style="color: #86efac; font-weight: 600;">R</span> Co-authors spec, ensures pattern alignment</td>
                     </tr>
                     <tr>
                         <td><strong>Create Tasks (Task Breakdown)</strong></td>
                         <td><span style="color: #93c5fd; font-weight: 600;">I</span> Reviews task structure</td>
-                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Works with Agent-OS to break down spec</td>
-                        <td><span style="color: #86efac; font-weight: 600;">R</span> Validates task structure and dependencies</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R/A</span> Works with Agent-OS to break spec into grouped, prioritized tasks</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R</span> Validates task structure, dependencies, and technical approach</td>
                     </tr>
                     <tr>
                         <td><strong>Spec Review & Approval</strong></td>
@@ -1140,10 +1143,10 @@
                         <td><span style="color: #86efac; font-weight: 600;">A</span> Validates security, model/data access, audit logging</td>
                     </tr>
                     <tr>
-                        <td><strong>Orchestration & Delivery</strong></td>
+                        <td><strong>Orchestration (Complex Features)</strong></td>
                         <td><span style="color: #93c5fd; font-weight: 600;">I</span> Tracks progress</td>
-                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Coordinates task completion</td>
-                        <td><span style="color: #86efac; font-weight: 600;">R/A</span> Final delivery coordination, merge approval</td>
+                        <td><span style="color: #d8b4fe; font-weight: 600;">R</span> Coordinates multi-agent task subdivision and parallel execution</td>
+                        <td><span style="color: #86efac; font-weight: 600;">R/A</span> Oversees integration, validates coordination, merge approval</td>
                     </tr>
                     <tr>
                         <td><strong>Release Feature</strong></td>
